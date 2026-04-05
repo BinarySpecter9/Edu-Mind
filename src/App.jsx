@@ -99,9 +99,8 @@ export default function EduMind() {
         system: SYSTEM_PROMPTS[mode],
         messages: history,
       };
-      if (useWeb) body.tools = [{ type: "web_search_20250305", name: "web_search" }];
 
-      const resp = await fetch("git add .", {
+     const resp = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
